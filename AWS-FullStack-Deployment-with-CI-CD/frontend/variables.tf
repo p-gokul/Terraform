@@ -1,5 +1,5 @@
 variable "s3_bucket" {
-    default = "test-bucket12-gokul"
+    default = "test-bucket123-gokul"
 }
 
 variable "aws_region" {
