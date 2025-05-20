@@ -15,7 +15,6 @@ resource "aws_codebuild_project" "frontend" {
     git_clone_depth = 1
     buildspec       = "ci-cd/frontend-buildspec.yaml"
 
-    # Webhooks
     git_submodules_config {
       fetch_submodules = false
     }
