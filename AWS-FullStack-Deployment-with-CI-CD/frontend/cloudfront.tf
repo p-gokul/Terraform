@@ -45,11 +45,11 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   price_class = "PriceClass_100"
 
- restrictions {
-  geo_restriction {
-    restriction_type = "none"
+  restrictions {
+    geo_restriction {
+      restriction_type = "none"
+    }
   }
-}
 
 
   tags = {

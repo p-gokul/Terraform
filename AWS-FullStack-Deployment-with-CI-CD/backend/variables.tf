@@ -19,5 +19,5 @@ variable "app_port" {
 variable "db_url" {
   description = "Database connection URL"
   type        = string
-  default = "your_db_url"
+  default     = "your_db_url"
 }

@@ -46,8 +46,8 @@ resource "aws_iam_policy" "ecr_ecs_full_access_policy" {
         Resource = "*"
       },
       {
-        Effect = "Allow",
-        Action = "secretsmanager:GetSecretValue",
+        Effect   = "Allow",
+        Action   = "secretsmanager:GetSecretValue",
         Resource = var.github_secret_arn
       },
       {

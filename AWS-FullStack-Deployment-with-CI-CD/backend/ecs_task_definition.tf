@@ -36,7 +36,7 @@ resource "aws_ecs_task_definition" "service" {
         }
       ],
       healthCheck = {
-        command     = ["CMD-SHELL", "curl -f http://localhost:5000/health || exit 1"]
+        command = ["CMD-SHELL", "curl -f http://localhost:5000/health || exit 1"]
       }
     }
   ])

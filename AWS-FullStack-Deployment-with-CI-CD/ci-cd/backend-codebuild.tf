@@ -25,7 +25,7 @@ resource "aws_codebuild_project" "backend" {
     image                       = "aws/codebuild/amazonlinux-x86_64-standard:5.0"
     type                        = "LINUX_CONTAINER"
     image_pull_credentials_type = "CODEBUILD"
-    privileged_mode = true
+    privileged_mode             = true
   }
 
   artifacts {
@@ -34,7 +34,7 @@ resource "aws_codebuild_project" "backend" {
 
   logs_config {
     cloudwatch_logs {
-      group_name = "/aws/codebuild/TestBackend"
+      group_name  = "/aws/codebuild/TestBackend"
       stream_name = "build-log"
       status      = "ENABLED"
     }
@@ -49,7 +49,7 @@ resource "aws_codebuild_project" "backend" {
 
 resource "aws_codebuild_webhook" "backend_webhook" {
   project_name = aws_codebuild_project.backend.name
-  build_type = "BUILD"
+  build_type   = "BUILD"
 
   filter_group {
     filter {
@@ -63,15 +63,13 @@ resource "aws_codebuild_webhook" "backend_webhook" {
     }
   }
 
-  
-
   filter_group {
 
     filter {
       type    = "EVENT"
       pattern = "PUSH"
     }
-    
+
     filter {
       type    = "FILE_PATH"
       pattern = "backend/*"

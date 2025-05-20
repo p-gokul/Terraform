@@ -33,7 +33,7 @@ resource "aws_codebuild_project" "frontend" {
 
   logs_config {
     cloudwatch_logs {
-      group_name = "/aws/codebuild/TestFrontend"
+      group_name  = "/aws/codebuild/TestFrontend"
       stream_name = "build-log"
       status      = "ENABLED"
     }
@@ -48,7 +48,7 @@ resource "aws_codebuild_project" "frontend" {
 
 resource "aws_codebuild_webhook" "frontend_webhook" {
   project_name = aws_codebuild_project.frontend.name
-  build_type = "BUILD"
+  build_type   = "BUILD"
 
   filter_group {
     filter {
@@ -62,7 +62,7 @@ resource "aws_codebuild_webhook" "frontend_webhook" {
     }
   }
 
-  
+
 
   filter_group {
 
@@ -70,7 +70,7 @@ resource "aws_codebuild_webhook" "frontend_webhook" {
       type    = "EVENT"
       pattern = "PUSH"
     }
-    
+
     filter {
       type    = "FILE_PATH"
       pattern = "frontend/*"

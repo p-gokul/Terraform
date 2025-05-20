@@ -34,9 +34,9 @@ resource "aws_iam_policy" "codebuild_s3_cloudfront_policy" {
         Resource = "arn:aws:s3:::*/*"
       },
       {
-      Effect = "Allow",
-      Action = "s3:ListBucket",
-      Resource = "arn:aws:s3:::*"
+        Effect   = "Allow",
+        Action   = "s3:ListBucket",
+        Resource = "arn:aws:s3:::*"
       },
       {
         Effect = "Allow",
@@ -46,19 +46,19 @@ resource "aws_iam_policy" "codebuild_s3_cloudfront_policy" {
         Resource = "*"
       },
       {
-        Effect = "Allow",
-        Action = "secretsmanager:GetSecretValue",
+        Effect   = "Allow",
+        Action   = "secretsmanager:GetSecretValue",
         Resource = var.github_secret_arn
       },
       {
-      Effect = "Allow",
-      Action = [
-        "logs:CreateLogGroup",
-        "logs:CreateLogStream",
-        "logs:PutLogEvents"
-      ],
-      Resource = "arn:aws:logs:*:*:*"
-    }
+        Effect = "Allow",
+        Action = [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ],
+        Resource = "arn:aws:logs:*:*:*"
+      }
     ]
   })
 }
